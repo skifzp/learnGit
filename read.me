@@ -98,7 +98,7 @@ git blame FileName
 	1. мы локально стоим на ветке отличной от МАСТЕР
 			git checkout NoMasterBranch
 	2.	делаем изменения и комитимся
-	3.	создаем push с ассоциациейю нашей лок ветки с удал веткой на удал репозитории
+	3.	создаем push с ассоциацией нашей лок ветки с удал веткой на удал репозитории
 			git push -u origin NoMasterBranch
 			
 ---------------------------------------------------------
@@ -124,7 +124,7 @@ git blame FileName
 						git branch -m OldName NewName
 			2.3. на удаленке
 						удаляем OldName -> git push origin : OldName
-						пушим в удаленку -> git push -u origin NoMasterBranch
+						пушим в удаленку -> git push -u origin NewName
 						
 ---------------------------------------------------------------
 
@@ -137,8 +137,8 @@ git blame FileName
 
 стянуть ветку из удаленного репозитория
 
-	git fetch origin BRANCH_NAME
-	git checkout BRANCH_NAME
+	git fetch origin BRANCH_NAME (стягиваем)
+	git checkout BRANCH_NAME  (переходим в эту вветку на локалке)
 	
 --------------------------------------------------
 
@@ -175,5 +175,14 @@ git blame FileName
 	
 	[alias]
 		branch = br
-		
+	
+
+	!!! А возможно ли настроить алиас на серию команд?
+			Да, конечно. Например так:
+				alias do='git stash && git stash clear'
+					Или так:
+				alias push='git pull; git push origin master'
+				
+			Команда после && запустится только в случае, если предыдущая не закончилась ошибкой. 
+			Команда после точки с запятой будет исполнена независимо от результата предыдущей.
 -----------------------------------------------------------
